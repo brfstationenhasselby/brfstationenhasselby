@@ -1,0 +1,16 @@
+# Brf Stationen 1 i Hässelby Strand
+# Used by one.com (Apache). Ignored by GitHub Pages.
+
+RewriteEngine on
+
+# Always use HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Old page names from the one.com Website Builder site
+Redirect 301 /about.html    /for-boende.html
+Redirect 301 /services.html /felanmalan.html
+Redirect 301 /join-us.html  /garage.html
+Redirect 301 /contact.html  /kontakt.html
+
+ErrorDocument 404 /404.html

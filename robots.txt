@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brfstationenhasselby.se/sitemap.xml

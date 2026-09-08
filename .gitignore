@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# The old one.com Website Builder export. Local reference only, never published.
+legacy site/
+
+# The filled-in onboarding file contains the BRF's tokens. It is handed to
+# board members by e-mail or shared drive and must never be committed.
+# (The template without secrets lives in onboarding/ and IS committed.)
+KOM-IGANG.md
+kom-igang.md

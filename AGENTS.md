@@ -72,15 +72,26 @@ file from an existing one and adding it to `NAV`.
 
 ## Checking your work
 
-There is no build. Open the changed page in a browser, or run a quick local server:
+There is no build and no server. Open the page straight from disk:
 
 ```
-python3 -m http.server 8000
+open index.html            # macOS
+start index.html           # Windows
+xdg-open index.html        # Linux
 ```
 
-and visit `http://localhost:8000/`. Check that the page still renders, links work, and that the
-text reads well in Swedish. A simple sanity check for broken HTML is to confirm every opened tag
-you added is closed.
+The browser renders the page from the file, including the shared header and footer, images and
+links between pages. Reload after each change (no hot reload, and none needed).
+
+To look at the result yourself, take a screenshot with headless Chrome if it is installed:
+
+```
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
+  --window-size=1280,2000 --screenshot=/tmp/sida.png "file://$PWD/index.html"
+```
+
+then view `/tmp/sida.png`. Check that the page renders, links work, and the Swedish reads well.
+Confirm every tag you added is closed.
 
 ## Publishing
 

@@ -39,7 +39,7 @@ class SiteHeader extends HTMLElement {
       <header class="header">
         <div class="container header__inner">
           <a class="header__logo" href="index.html" aria-label="${SITE.name} – startsida">
-            <img src="img/logo.png" alt="${SITE.name}" width="900" height="379">
+            <img src="img/logo.png" alt="${SITE.name}" width="1000" height="318">
           </a>
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
             <span aria-hidden="true">☰</span> Meny
@@ -66,7 +66,7 @@ class SiteFooter extends HTMLElement {
       <footer class="footer">
         <div class="container footer__inner">
           <div>
-            <a class="footer__logo" href="index.html"><img src="img/logo-vit.png" alt="${SITE.name}" width="900" height="379"></a>
+            <a class="footer__logo" href="index.html"><img src="img/logo-vit.png" alt="${SITE.name}" width="1000" height="318"></a>
             <p>${SITE.tagline}.</p>
             <p class="small">Org.nr ${SITE.orgnr}</p>
           </div>

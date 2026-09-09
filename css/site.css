@@ -221,7 +221,7 @@ site-header { display: block; }
 
 /* Page banner (sub pages) */
 .banner {
-  background: #eee7df;
+  background: var(--bg);
   border-bottom: 1px solid var(--line);
   padding: 4rem 0;
 }
@@ -268,6 +268,7 @@ site-header { display: block; }
 .card:focus-within { border-color: var(--brand); }
 
 .resident-guide__intro { margin-bottom: 2rem; }
+.resident-guide { background: #f1e6e2; }
 .guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .guide-card { padding: 1.6rem 1.65rem 1.2rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
 .guide-card h3 { margin: 0.35rem 0 1rem; }

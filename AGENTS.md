@@ -14,6 +14,7 @@ repo is exactly what the web server serves.
 ```
 index.html          Startsida – välkomst, siffror, snabblänkar, nyheter från styrelsen
 for-boende.html     För boende – dokument, praktiskt, ordningsregler
+gastlagenhet.html   Gästlägenhet – information och manuellt uppdaterad bokningskalender
 felanmalan.html     Felanmälan – City Förvaltning, SBC, övriga servicekontakter
 garage.html         Garage – priser, hyra plats
 kontakt.html        Kontakta styrelsen – e-post, styrelsen, karta
@@ -53,6 +54,14 @@ The header and footer are rendered by `js/site.js` so the menu and address live 
 
 ## Common tasks
 
+**Uppdatera gästlägenhetens bokningar:** redigera JSON i `booking-data` på
+`gastlagenhet.html`. Ange `arrival` och `departure` som `ÅÅÅÅ-MM-DD`; ankomstdagen
+är en bokad natt, avresedagen ingår inte. Fråga om år eller datumgränser är oklara.
+Kontrollera överlapp och högst sju nätter för nya bokningar. Den redan bekräftade
+bokningen 19–27 september 2026 ska bevaras trots sin längd. Uppdatera `updated`.
+Publicera inga namn, lägenhetsnummer eller kontaktuppgifter i kalendern.
+Kalendern fungerar lokalt utan backend via `js/gastlagenhet.js`.
+
 **Add a news item** (`index.html`, list `ul.news`): copy the first `<li class="news-item">` block,
 put the new one at the top, set the `kicker` (date or short label), heading and text. Remove
 items that are no longer relevant when asked.
@@ -60,6 +69,17 @@ items that are no longer relevant when asked.
 **Add or replace a document:** save the file in `dokument/`, then add or update the `<li>` in the
 `ul.doc-list` on `for-boende.html`. When replacing (e.g. a new årsredovisning), keep the old file
 unless told otherwise and update the link and label.
+
+Dokument har nu lässidor: `stadgar.html`, `trivselregler.html`,
+`att-bo-i-bostadsratt.html` (läsguide), `andrahandsuthyrning.html` (information om
+blanketten), `bygga-och-renovera.html`, `pantsattningar.html`, `nyinflyttad.html`
+och `maklarinformation.html`. Länka till lässidan i första hand, med nedladdning
+av PDF på lässidan. Årsredovisningen länkas direkt som original-PDF.
+Vid uppdateringar ska lässidan och dess PDF hållas i synk. PDF:erna
+`nyinflyttad-infoblad.pdf` och `maklarinfo-2024.pdf` är utskrifter av webbtexten;
+de äldre Word-originalen är bevarade. Använd sidans utskriftslayout när dessa
+PDF:er genereras på nytt. Uppgifter som motsäger varandra ska stämmas av med
+styrelsen; äldre dokument får inte tyst presenteras som aktuella regler.
 
 **Update the board** (`kontakt.html`, list `ul.people`): one `<li>` per person with name and role.
 Done after every årsstämma.

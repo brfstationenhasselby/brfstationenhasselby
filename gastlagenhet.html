@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gästlägenhet | Brf Stationen 1 i Hässelby Strand</title>
+  <meta name="description" content="Information och bokningskalender för gästlägenheten. 300 kr per natt, högst en vecka i sträck. Bokning via styrelsen.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
+  <script src="js/gastlagenhet.js" defer></script>
+</head>
+<body>
+<site-header></site-header>
+<main>
+  <section class="banner">
+    <div class="container">
+      <p><a href="for-boende.html">Till För boende</a></p>
+      <h1>Gästlägenheten</h1>
+      <p>Information inför vistelsen och kalender över registrerade bokningar.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <div>
+        <div class="section-title"><h2>Inför din vistelse</h2></div>
+        <p class="lead">Som medlem kan du hyra föreningens gästlägenhet för 300 kr per natt, högst en vecka i sträck.</p>
+        <ul>
+          <li>Ta med egna sängkläder.</li>
+          <li>Dammsugare finns tillgänglig.</li>
+          <li>Lämna lägenheten och dess utrymmen i samma skick som vid tillträdet. Om städning behövs debiteras medlemmen som hyrde lägenheten.</li>
+          <li>Bortslarvade nycklar debiteras med låsbyte och omkostnader.</li>
+        </ul>
+        <div class="notice"><p><strong>Bastun får inte användas.</strong></p></div>
+      </div>
+      <div class="panel">
+        <h2>Boka via styrelsen</h2>
+        <p>Kontakta styrelsen med önskat ankomst- och avresedatum. Styrelsen bekräftar bokningen och uppdaterar kalendern.</p>
+        <a class="btn btn--primary" href="mailto:styrelsen@brfstationenhasselby.se?subject=G%C3%A4stl%C3%A4genheten">Mejla om bokning</a>
+        <p class="small"><a href="kontakt.html">Alla kontaktuppgifter</a></p>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt" id="bokningskalender">
+    <div class="container">
+      <div class="section-title"><h2>Bokningskalender</h2></div>
+      <p>Kalendern visar registrerade bokningsnätter. Avresedagen ingår inte. Datum utan markering är inte en garanti för tillgänglighet – bokningen behöver alltid bekräftas av styrelsen.</p>
+      <!--
+        Agent: ändra JSON-listan nedan. Inga namn eller kontaktuppgifter!
+        arrival = ankomst (ingår), departure = avresa (ingår inte), format ÅÅÅÅ-MM-DD.
+        Nya bokningar: högst 7 nätter, inga överlapp. Bevara bekräftade äldre bokningar.
+        Uppdatera updated till datumet när ändringen görs.
+      -->
+      <script type="application/json" id="booking-data">
+        {"updated":"2026-09-09","bookings":[
+          {"arrival":"2026-09-19","departure":"2026-09-27"},
+          {"arrival":"2026-10-08","departure":"2026-10-11"}
+        ]}
+      </script>
+      <div class="panel booking-calendar" id="booking-calendar" hidden>
+        <div class="calendar-toolbar">
+          <button class="btn btn--ghost" type="button" id="previous-month" aria-label="Föregående månad">←</button>
+          <h3 id="calendar-month" aria-live="polite" aria-atomic="true"></h3>
+          <button class="btn btn--ghost" type="button" id="next-month" aria-label="Nästa månad">→</button>
+        </div>
+        <p class="small muted" id="calendar-status"></p>
+        <p class="small calendar-legend"><span aria-hidden="true">●</span> Bokat · markeras med färg och punkt</p>
+        <table class="calendar-table" aria-labelledby="calendar-month">
+          <thead><tr><th scope="col">Mån</th><th scope="col">Tis</th><th scope="col">Ons</th><th scope="col">Tor</th><th scope="col">Fre</th><th scope="col">Lör</th><th scope="col">Sön</th></tr></thead>
+          <tbody id="calendar-days"></tbody>
+        </table>
+      </div>
+      <p id="calendar-fallback">Kontakta styrelsen för aktuellt bokningsläge.</p>
+    </div>
+  </section>
+</main>
+<site-footer></site-footer>
+</body>
+</html>

@@ -121,7 +121,14 @@ The `main` branch is the live site.
 - **Later:** the same files are uploaded to one.com's webspace root (via a GitHub Action over SFTP
   or by hand). `.htaccess` only matters there.
 
-To publish: `git add -A && git commit -m "<what changed, in Swedish>" && git push`.
+After making and checking changes, do not commit or push immediately. Ask the user whether
+they would like to preview the changes. If they say yes, open the affected page locally in
+their browser using the commands under "Checking your work". Let them know that when they
+are done reviewing, they can ask you to deploy the changes to make them live for visitors.
+Wait for an explicit request to publish before committing and pushing; declining a preview
+does not by itself authorize publication.
+
+Once the user asks you to publish: `git add -A && git commit -m "<what changed, in Swedish>" && git push`.
 Tell the person the change is live in about a minute and where to look.
 
 To undo the latest change: `git revert HEAD && git push`.

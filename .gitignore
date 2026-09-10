@@ -6,6 +6,8 @@ legacy site/
 
 # The filled-in onboarding file contains the BRF's tokens. It is handed to
 # board members by e-mail or shared drive and must never be committed.
-# (The template without secrets lives in onboarding/ and IS committed.)
+# The local PDF contains credentials and must never be published.
+kom-igang.pdf
+KOM-IGANG.pdf
 KOM-IGANG.md
 kom-igang.md

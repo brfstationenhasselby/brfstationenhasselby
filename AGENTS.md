@@ -25,7 +25,7 @@ img/                Photos, logo (logo.png, logo-vit.png), favicon.svg
 dokument/           PDF/Word files linked from the pages
 .htaccess           HTTPS redirect + 301s from the old page names (used on one.com only)
 sitemap.xml, robots.txt
-onboarding/         Template for the board-member onboarding file (no secrets)
+kom-igang.pdf       Local onboarding guide with credentials; git-ignored, never publish
 legacy site/        Old one.com export. Git-ignored, reference only, will be deleted.
 ```
 
@@ -50,7 +50,15 @@ The header and footer are rendered by `js/site.js` so the menu and address live 
 - **Images:** JPEG for photos, max ~1600 px wide, put in `img/`. Always set `alt` text.
 - **Documents:** put files in `dokument/` with short lowercase names, no spaces or åäö
   (e.g. `arsredovisning-2025.pdf`). Link them from `for-boende.html` in the document list.
-- **Never commit** `KOM-IGANG.md` (the onboarding file with tokens) or anything from `legacy site/`.
+- **Never commit** `kom-igang.pdf`, `KOM-IGANG.md` (onboarding files with tokens), or anything from `legacy site/`. Never upload these onboarding files to web hosting either.
+- **Check for credentials before every commit and push.** Inspect the staged files and any
+  unpushed commits for tokens, passwords, private keys, credential-bearing URLs, or other
+  secrets that could give someone with access to the repository permission to modify it or
+  publish the website. Include documents and generated files in this check. Never print
+  discovered secrets in logs or replies. Do not commit or push credentials; remove them from
+  the proposed commit and keep credential files ignored. If credentials have already been
+  committed, stop publication, notify the user, and arrange revocation or rotation. Deleting
+  a secret from the latest file does not remove it from Git history.
 
 ## Common tasks
 
@@ -137,11 +145,15 @@ If a push is rejected because someone else pushed first: `git pull --rebase && g
 
 ## Onboarding new board members
 
-`onboarding/kom-igang.template.md` is the template. The filled-in copy (with the BRF's GitHub
-token and AI API key) is called `KOM-IGANG.md`, is git-ignored, and is handed out by e-mail or the
-board's shared drive. A member pastes its contents into their terminal AI agent, which clones this
-repo and sets everything up. Claude Code reads this file via `CLAUDE.md`, Gemini CLI via
-`GEMINI.md`, Codex and others read `AGENTS.md` directly.
+`kom-igang.pdf` in the project root is the local onboarding guide. It has a human-readable
+getting-started section and a separate setup section for agents, including the BRF's GitHub
+token. It is git-ignored, not included in clones, and must be shared privately with board members.
+Never commit it or upload it to the website, including when copying files manually to one.com.
+Members provide the PDF to an agent that can edit local files and run Git commands. AI service
+access is set up separately; the GitHub token does not provide an AI subscription or API access.
+Configure Git credentials and author details locally for this repository, without switching
+global accounts or embedding tokens in remote URLs. Claude Code reads this file via `CLAUDE.md`,
+Gemini CLI via `GEMINI.md`, Codex and others read `AGENTS.md` directly.
 
 ## Background: the old site and hosting
 

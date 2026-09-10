@@ -123,21 +123,28 @@ Confirm every tag you added is closed.
 
 ## Publishing
 
-The `main` branch is the live site.
+This replacement website is not in production yet. For now, publish only to GitHub Pages.
+The `main` branch is the GitHub Pages demo, not the production website at brfstationenhasselby.se.
 
 - **Demo / current setup:** GitHub Pages publishes `main` automatically about a minute after a push.
-- **Later:** the same files are uploaded to one.com's webspace root (via a GitHub Action over SFTP
-  or by hand). `.htaccess` only matters there.
+- **No other deployment targets yet:** do not upload to one.com or another host, or change DNS.
+  A future production launch requires separate, explicit instructions.
+
+If a user asks to deploy changes, explain in Swedish that this replacement website is not
+in production yet, and offer to publish the changes to the GitHub Pages demo by pushing.
+Wait for their confirmation before committing and pushing. If they already explicitly asked
+to push or publish to GitHub Pages, that is sufficient confirmation.
 
 After making and checking changes, do not commit or push immediately. Ask the user whether
 they would like to preview the changes. If they say yes, open the affected page locally in
 their browser using the commands under "Checking your work". Let them know that when they
-are done reviewing, they can ask you to deploy the changes to make them live for visitors.
+are done reviewing, they can ask you to publish the changes to the GitHub Pages demo.
 Wait for an explicit request to publish before committing and pushing; declining a preview
 does not by itself authorize publication.
 
 Once the user asks you to publish: `git add -A && git commit -m "<what changed, in Swedish>" && git push`.
-Tell the person the change is live in about a minute and where to look.
+Tell the person the change will appear on the GitHub Pages demo in about a minute, at
+https://brfstationenhasselby.github.io/brfstationenhasselby/ . Do not describe it as a production launch.
 
 To undo the latest change: `git revert HEAD && git push`.
 

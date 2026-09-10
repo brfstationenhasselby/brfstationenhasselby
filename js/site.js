@@ -26,7 +26,7 @@ function currentPage() {
   return file === "" ? "index.html" : file;
 }
 
-const RESIDENT_PAGES = new Set(["gastlagenhet.html", "bygga-och-renovera.html", "pantsattningar.html", "trivselregler.html", "andrahandsuthyrning.html", "att-bo-i-bostadsratt.html", "nyinflyttad.html", "maklarinformation.html", "stadgar.html"]);
+const RESIDENT_PAGES = new Set(["ordningsregler.html", "gastlagenhet.html", "bygga-och-renovera.html", "pantsattningar.html", "trivselregler.html", "andrahandsuthyrning.html", "att-bo-i-bostadsratt.html", "nyinflyttad.html", "maklarinformation.html", "stadgar.html"]);
 
 class SiteHeader extends HTMLElement {
   connectedCallback() {
